@@ -1,0 +1,23 @@
+language: go
+sudo: false
+jobs:
+  include:
+  - stage: build
+    os: linux
+    dist: xenial
+    go: 1.14.x
+    env:
+      # - GO111MODULE=on
+      - GOARCH=amd64
+      - GOOS=linux
+      - DEP_VERSION="0.5.4"
+
+    before_install:
+      - echo $TRAVIS_TAG
+      - echo $TRAVIS_BRANCH
+      - echo $TRAVIS_COMMIT
+
+    script:
+      - echo $TRAVIS_TAG
+      - echo $TRAVIS_BRANCH
+      - echo $TRAVIS_COMMIT
